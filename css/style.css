@@ -9,6 +9,7 @@
 /* /typo */
 .wrapper{
   height: 100vh;
+  font-family: 'Lato', sans-serif;
   display: flex;
   align-items: center;
   background: rgb(219,219,210);
@@ -27,6 +28,25 @@ main{
   width: 40%;
   background-color: grey;
 }
+/* user_name */
+.user{
+  background-color: #EAEAEA;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+.user_name img{
+  width: 50px;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+.user_icons i{
+  color: #B1B1B1;
+  margin-left: 8px;
+}
+/* /user_name */
 .message_box{
   width: 60%;
   background-color: lightgrey;
