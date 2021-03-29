@@ -72,7 +72,7 @@
             <div  v-for="mex in contacts[messageBoxIndex].messages" class="message_box_line">
               <div class="message mine" :class="mex.status == 'sent' ? 'mine' : 'others'">
                 {{mex.message}}
-                <span class="date">{{dataOra}}</span>
+                <span class="date">{{mex.date}}</span>
               </div>
             </div>
           </div>

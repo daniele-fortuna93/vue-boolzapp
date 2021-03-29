@@ -116,7 +116,6 @@ var app = new Vue(
           function replace() {
             let message = 'Ok';
             let status = 'received';
-            let date = this.dataOra;
             messagesArray[y].messages.push({message, date, status});
         }
 
