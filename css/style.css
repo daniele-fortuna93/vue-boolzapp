@@ -6,6 +6,9 @@
 }
 /* /reset */
 /* typo */
+.message p{
+  overflow-wrap: anywhere;
+}
 .notifications_text a,
 .avatar_info span,
 .message_footer input{

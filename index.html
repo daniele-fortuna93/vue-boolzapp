@@ -71,7 +71,7 @@
           <div  v-if="contacts[messageBoxIndex].visible == true" class="message_box">
             <div  v-for="mex in contacts[messageBoxIndex].messages" class="message_box_line">
               <div class="message mine" :class="mex.status == 'sent' ? 'mine' : 'others'">
-                {{mex.message}}
+                <p>{{mex.message}}</p>
                 <span class="date">{{mex.date}}</span>
               </div>
             </div>
