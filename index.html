@@ -44,7 +44,7 @@
           </div>
           <div class="contacts_box">
             <ul class="contacts_list">
-              <li v-for="(names, index) in contacts" @click="getIndex(index)">
+              <li v-for="(names, index) in contacts" @click="getIndex(index)" :class="(index == messageBoxIndex)? 'active' : ''">
                 <img v-bind:src="names.avatar" alt="">
                 {{names.name}}
               </li>
