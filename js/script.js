@@ -83,7 +83,9 @@ var app = new Vue(
               ],
           },
       ],
+      messageBoxIndex: 0,
       dataOra: dayjs().format('DD/MM/YYYY HH:mm:ss'),
+      inputMessage: '',
       imgList:[
         'img/avatar_1.jpg',
         'img/avatar_2.jpg',
@@ -96,7 +98,29 @@ var app = new Vue(
       ]
     },
     methods: {
+      getIndex: function (index) { // Funzione per prendere l'indice dei contatti
+        let x = index;
+        console.log(x);
+        this.messageBoxIndex = x;
+        return x;
+      },
+      sendMessage: function () { // Funzione per inviare messaggi e per ricevere una risposta dopo 1 secondo
+        let y = this.messageBoxIndex;
+        let message = this.inputMessage;
+        let status = 'sent';
+        let date = this.dataOra;
+        let messagesArray = this.contacts;
+        messagesArray[y].messages.push({message, date, status});
+        this.inputMessage = '';
+        setTimeout(replace, 1000);
+          function replace() {
+            let message = 'Ok';
+            let status = 'received';
+            let date = this.dataOra;
+            messagesArray[y].messages.push({message, date, status});
+        }
 
+      }
     }
   }
 );

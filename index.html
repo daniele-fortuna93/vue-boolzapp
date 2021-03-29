@@ -44,7 +44,7 @@
           </div>
           <div class="contacts_box">
             <ul class="contacts_list">
-              <li v-for="(names, index) in contacts">
+              <li v-for="(names, index) in contacts" @click="getIndex(index)">
                 <img v-bind:src="names.avatar" alt="">
                 {{names.name}}
               </li>
@@ -56,9 +56,9 @@
         <div class="message_container">
           <div class="header_container">
             <div class="avatar_name">
-              <img src="img/avatar_1.jpg" alt="">
+              <img :src="contacts[messageBoxIndex].avatar" alt="">
               <div class="avatar_info">
-                <p>Michele</p>
+                <p>{{ contacts[messageBoxIndex].name}}</p>
                 <span>Ultimo accesso oggi alle</span>
               </div>
             </div>
@@ -68,32 +68,18 @@
               <i class="fas fa-ellipsis-v"></i>
             </div>
           </div>
-          <div class="message_box">
-            <div class="message_box_line">
-              <div class="message mine">
-                Hai portato a spasso il cane?
+          <div  v-if="contacts[messageBoxIndex].visible == true" class="message_box">
+            <div  v-for="mex in contacts[messageBoxIndex].messages" class="message_box_line">
+              <div class="message mine" :class="mex.status == 'sent' ? 'mine' : 'others'">
+                {{mex.message}}
                 <span class="date">{{dataOra}}</span>
               </div>
             </div>
-            <div class="message_box_line">
-              <div class="message mine">
-                Ricordati di dargli da mangiare
-                <span class="date">{{dataOra}}</span>
-              </div>
-            </div>
-            <div class="message_box_line">
-              <div class="message others">
-                Tutto fatto
-                <span class="date">{{dataOra}}</span>
-              </div>
-
-            </div>
-
           </div>
 
           <div class="message_footer">
             <button id="smile" type="button" name="button"><i class="far fa-smile"></i></button>
-            <input type="text" name="" value="" placeholder="Scrivi un messaggio">
+            <input v-model="inputMessage" type="text" name="" value="" @keydown.enter="sendMessage" placeholder="Scrivi un messaggio">
             <button id="microphone" type="button" name="button"><i class="fas fa-microphone"></i></button>
           </div>
         </div>
