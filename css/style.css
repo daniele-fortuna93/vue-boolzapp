@@ -73,6 +73,31 @@ main{
   margin-right: 10px;
 }
 /* /notifications */
+/* search */
+.search{
+  background-color: #EAEAEA;
+  padding: 6px;
+  display: flex;
+}
+.search input,
+#search_button{
+  border: none;
+  outline: none;
+  padding: 5px;
+  color: #B1B1B1;
+
+}
+#search_button{
+  width: 15%;
+  background-color: #fff;
+  text-align: center;
+  cursor: pointer;
+}
+.search input{
+  width: 85%;
+  border-left: 1px solid #ddd;
+}
+/* /search */
 .message_box{
   width: 60%;
   background-color: lightgrey;
