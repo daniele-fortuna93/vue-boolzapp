@@ -6,11 +6,39 @@
 }
 /* /reset */
 /* typo */
-.notifications_text a{
+.notifications_text a,
+.avatar_info span,
+.message_footer input{
   color: #6B7376;
   font-size: 14px;
 }
+#smile,
+#microphone{
+  font-size: 25px;
+  color: #6B7376;
+}
 /* /typo */
+/* mix */
+.header_container{
+  height: 75px;
+  background-color: #EAEAEA;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+}
+.search input,
+#search_button,
+.message_footer input,
+#smile,
+#microphone
+{
+  border: none;
+  outline: none;
+  padding: 5px;
+  color: #B1B1B1;
+}
+/* /mix */
 .wrapper{
   height: 100vh;
   font-family: 'Lato', sans-serif;
@@ -31,27 +59,23 @@ main{
 .contact_box{
   width: 40%;
   background-color: #fff;
+  border-right: 1px solid lightgrey;
 }
-/* user */
-.user{
-  height: 75px;
-  background-color: #EAEAEA;
+/* avatar */
+.avatar_name{
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 12px;
 }
-.user_name img{
+.avatar_name img{
   width: 50px;
   border-radius: 50%;
-  vertical-align: middle;
   margin-right: 8px;
 }
-.user_icons i{
+.avatar_icons i{
   color: #B1B1B1;
   margin-left: 8px;
 }
-/* /user */
+/* /avatar */
 /* notifications */
 .notifications{
   height: 85px;
@@ -81,14 +105,6 @@ main{
   background-color: #EAEAEA;
   padding: 6px;
   display: flex;
-}
-.search input,
-#search_button{
-  border: none;
-  outline: none;
-  padding: 5px;
-  color: #B1B1B1;
-
 }
 #search_button{
   width: 15%;
@@ -123,8 +139,28 @@ main{
   margin-right: 10px;
 }
 /* /contacts */
-
-.message_box{
+/* message container */
+.message_container{
   width: 60%;
   background-color: lightgrey;
 }
+.message_box{
+  height: calc(100% - 140px);
+  background-image: url('../img/mine.jpg');
+  overflow-y: scroll;
+}
+.message_footer{
+  padding: 8px 20px;
+  height: 65px;
+  background-color: #F3EEEA;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.message_footer input{
+  width: 85%;
+  padding: 12px 8px;
+  border-radius: 5px;
+}
+
+/* /message container */

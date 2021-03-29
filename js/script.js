@@ -95,11 +95,6 @@ var app = new Vue(
       ]
     },
     methods: {
-      setImg: function (x) {
-
-        }
-
-
 
     }
   }
