@@ -1,10 +1,33 @@
+/* reset */
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+/* /reset */
+/* typo */
+/* /typo */
 .wrapper{
   height: 100vh;
+  display: flex;
+  align-items: center;
   background: rgb(219,219,210);
   background: linear-gradient(0deg, rgba(219,219,210,1) 80%, rgba(0,150,136,1) 80%);
+}
+/* main */
+main{
+  width: 75%;
+  min-width: 950px;
+  height: 95%;
+  margin: auto;
+  background-color: blue;
+  display: flex;
+}
+.contact_box{
+  width: 40%;
+  background-color: grey;
+}
+.message_box{
+  width: 60%;
+  background-color: lightgrey;
 }
