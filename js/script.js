@@ -83,6 +83,7 @@ var app = new Vue(
               ],
           },
       ],
+      dataOra: dayjs().format('DD/MM/YYYY HH:mm:ss'),
       imgList:[
         'img/avatar_1.jpg',
         'img/avatar_2.jpg',

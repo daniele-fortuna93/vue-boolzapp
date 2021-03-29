@@ -18,6 +18,14 @@
   color: #6B7376;
 }
 /* /typo */
+/* btn */
+#search_button{
+  width: 15%;
+  background-color: #fff;
+  text-align: center;
+  cursor: pointer;
+}
+/* /btn */
 /* mix */
 .header_container{
   height: 75px;
@@ -106,12 +114,6 @@ main{
   padding: 6px;
   display: flex;
 }
-#search_button{
-  width: 15%;
-  background-color: #fff;
-  text-align: center;
-  cursor: pointer;
-}
 .search input{
   width: 85%;
   border-left: 1px solid #ddd;
@@ -146,8 +148,39 @@ main{
 }
 .message_box{
   height: calc(100% - 140px);
+  padding: 25px 55px 0;
   background-image: url('../img/mine.jpg');
   overflow-y: scroll;
+}
+.message_box_line{
+  margin-bottom: 10px;
+}
+.message_box_line::after{
+  content: '';
+  display: block;
+  clear: both;
+}
+.message{
+  position: relative;
+  padding: 20px 15px;
+  border-radius: 5px;
+  max-width: 50%;
+  min-width: 40%;
+}
+.mine{
+  float: right;
+  background-color: #D5F9BA;
+}
+.others{
+  float: left;
+  background-color: #fff;
+}
+.date{
+  position: absolute;
+  color: #B1B1B1;
+  font-size: 10px;
+  bottom: 2px;
+  right: 2px;
 }
 .message_footer{
   padding: 8px 20px;

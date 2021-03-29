@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
     <!-- Vuejs -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
     <!-- Google font -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap" rel="stylesheet">
@@ -68,6 +69,25 @@
             </div>
           </div>
           <div class="message_box">
+            <div class="message_box_line">
+              <div class="message mine">
+                Hai portato a spasso il cane?
+                <span class="date">{{dataOra}}</span>
+              </div>
+            </div>
+            <div class="message_box_line">
+              <div class="message mine">
+                Ricordati di dargli da mangiare
+                <span class="date">{{dataOra}}</span>
+              </div>
+            </div>
+            <div class="message_box_line">
+              <div class="message others">
+                Tutto fatto
+                <span class="date">{{dataOra}}</span>
+              </div>
+
+            </div>
 
           </div>
 
