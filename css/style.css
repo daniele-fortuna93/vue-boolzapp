@@ -15,6 +15,11 @@
 .list_received{
   font-weight: 700;
 }
+.avatar_icons i{
+  font-size: 20px;
+  color: #B1B1B1;
+  margin-left: 8px;
+}
 .contacts_list li p{
   margin-top: 10px;
 }
@@ -83,7 +88,6 @@ main{
   min-width: 950px;
   height: 95%;
   margin: auto;
-  background-color: blue;
   display: flex;
 }
 .contact_box{
@@ -100,11 +104,6 @@ main{
   width: 50px;
   border-radius: 50%;
   margin-right: 8px;
-}
-.avatar_icons i{
-  font-size: 20px;
-  color: #B1B1B1;
-  margin-left: 8px;
 }
 /* /avatar */
 /* notifications */
@@ -222,5 +221,34 @@ main{
   padding: 12px 8px;
   border-radius: 5px;
 }
-
 /* /message container */
+
+/* responsive */
+@media screen and (max-width: 960px) {
+  main{
+    width: 75%;
+    min-width: 699px;
+  }
+}
+@media screen and (max-width: 700px) {
+  /* typo */
+  .notifications a,
+  .notifications p{
+    font-size: 12px;
+  }
+  .avatar_icons i{
+    font-size: 16px;
+  }
+  /* /typo */
+  main{
+    width: 85%;
+    min-width: 500px;
+  }
+  .contact_box{
+    width: 30%;
+  }
+  .message_container{
+    width: 70%;
+  }
+}
+/* /responsive */

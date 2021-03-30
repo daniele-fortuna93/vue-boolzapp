@@ -20,6 +20,7 @@
       <main id="root">
         <!-- contatti -->
         <div class="contact_box">
+          <!-- dati utente -->
           <div class="header_container">
             <div class="avatar_name">
               <img src="img/avatar_io.jpg" alt="">
@@ -30,7 +31,10 @@
               <i class="fas fa-circle-notch"></i>
               <i class="fas fa-ellipsis-v"></i>
             </div>
+
           </div>
+          <!-- /dati utente -->
+          <!-- notifiche -->
           <div class="notifications">
             <div class="notifications_text">
               <p>Ricevi notifiche di nuovi messaggi</p>
@@ -38,10 +42,14 @@
             </div>
 
           </div>
+          <!-- /notifiche -->
+          <!-- ricerca chat/nome -->
           <div class="search">
             <button id="search_button" type="button" name="button"><i class="fas fa-search"></i></button>
             <input type="text" name="" value="" placeholder="Cerca o inizia una nuova chat">
           </div>
+          <!-- /ricerca chat/nome -->
+          <!-- lista contatti/chat -->
           <div class="contacts_box">
             <ul class="contacts_list">
               <li v-for="(names, index) in contacts" @click="getIndex(index)" :class="(index == messageBoxIndex)? 'active' : ''">
@@ -53,10 +61,12 @@
               </li>
             </ul>
           </div>
+          <!-- /lista contatti/chat -->
         </div>
         <!-- /contatti -->
         <!-- messaggi -->
         <div class="message_container">
+          <!-- dati contatto chat aperta -->
           <div class="header_container">
             <div class="avatar_name">
               <img :src="'img/avatar' + contacts[messageBoxIndex].avatar + '.jpg'" alt="">
@@ -71,20 +81,26 @@
               <i class="fas fa-ellipsis-v"></i>
             </div>
           </div>
+          <!-- /dati contatto chat aperta -->
+          <!-- chat -->
           <div  v-if="contacts[messageBoxIndex].visible == true" class="message_box">
+            <!-- messaggi relativi alla chat -->
             <div  v-for="mex in contacts[messageBoxIndex].messages" class="message_box_line">
               <div class="message mine" :class="mex.status == 'sent' ? 'mine' : 'others'">
                 <p>{{mex.message}}</p>
                 <span class="date">{{mex.date}}</span>
               </div>
             </div>
+            <!-- /messaggi relativi alla chat -->
           </div>
-
+          <!-- /chat -->
+          <!-- input per inviare messaggi -->
           <div class="message_footer">
             <button id="smile" type="button" name="button"><i class="far fa-smile"></i></button>
             <input v-model="inputMessage" type="text" name="" value="" @keydown.enter="sendMessage" placeholder="Scrivi un messaggio">
             <button id="microphone" type="button" name="button"><i class="fas fa-microphone"></i></button>
           </div>
+          <!-- /input per inviare messaggi -->
         </div>
         <!-- /messaggi -->
       </main>
