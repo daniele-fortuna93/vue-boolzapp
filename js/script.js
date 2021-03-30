@@ -82,6 +82,38 @@ var app = new Vue(
                   {
                       date: '10/01/2020 15:50:00',
                       message: 'Si, ma preferirei andare al cinema',
+                      status: 'received'
+                  }
+              ],
+          },
+          {
+              name: 'Mattia',
+              avatar: '_5',
+              visible: true,
+              access: '130:30',
+              messages: [{
+                  date: '10/01/2020 15:30:55',
+                  message: 'Oggi che cosa fai dopo lavoro?',
+                  status: 'sent'
+              },
+                  {
+                      date: '10/01/2020 15:50:00',
+                      message: 'Ancora non lo so',
+                      status: 'received'
+                  },
+                  {
+                      date: '10/01/2020 15:50:00',
+                      message: 'Tu sei libero?',
+                      status: 'received'
+                  },
+                  {
+                      date: '10/01/2020 15:50:00',
+                      message: 'Si',
+                      status: 'sent'
+                  },
+                  {
+                      date: '10/01/2020 15:50:00',
+                      message: 'Potremmo vederci per le 16:00, che ne pensi?',
                       status: 'sent'
                   }
               ],
