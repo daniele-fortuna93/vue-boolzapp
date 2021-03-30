@@ -6,7 +6,13 @@
 }
 /* /reset */
 /* typo */
-.list_sent{
+.cut_mex{
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.list_received{
   font-weight: 700;
 }
 .contacts_list li p{
