@@ -124,9 +124,11 @@ var app = new Vue(
               ],
           },
       ],
+      contactsSearch:[],
       messageBoxIndex: 0,
       dataOra: dayjs().format('DD/MM/YYYY HH:mm:ss'),
-      inputMessage: ''
+      inputMessage: '',
+      inputSearch: ''
     },
     methods: {
       getIndex: function (index) { // Funzione per prendere l'indice dei contatti
@@ -160,6 +162,24 @@ var app = new Vue(
       lastMessage: function(array){
         let lastIndex = array.length - 1;
         return lastIndex;
+      },
+      searchContact: function () {
+        let nomeCercato = this.inputSearch;
+        nomeCercato = nomeCercato[0].toUpperCase() + nomeCercato.substring(1);
+        let contatti = this.contacts;
+        let contactSearch = this.contactsSearch;
+        if ( nomeCercato != '') {
+          for (var i = 0; i < contatti.length; i++) {
+            if ((new RegExp(nomeCercato)).test(contatti[i].name)) {
+              contactSearch.push(contatti[i]);
+            }
+          }
+        }
+      },
+      deleteSearchContacts: function () {
+        if ( this.inputSearch == '') {
+          this.contactsSearch = [];
+        }
       }
     }
   }

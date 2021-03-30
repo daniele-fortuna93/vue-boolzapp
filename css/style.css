@@ -84,6 +84,8 @@
 }
 /* main */
 main{
+  overflow: hidden;
+  border-radius: 10px;
   width: 75%;
   min-width: 950px;
   height: 95%;
