@@ -169,8 +169,10 @@ var app = new Vue(
         let contatti = this.contacts;
         let contactSearch = this.contactsSearch;
         if ( nomeCercato != '') {
+
           for (var i = 0; i < contatti.length; i++) {
             if ((new RegExp(nomeCercato)).test(contatti[i].name)) {
+              if (!contactSearch.includes(contatti[i]))
               contactSearch.push(contatti[i]);
             }
           }

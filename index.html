@@ -46,7 +46,7 @@
           <!-- ricerca chat/nome -->
           <div class="search">
             <button id="search_button" type="button" name="button" @click="searchContact" ><i class="fas fa-search"></i></button>
-            <input type="text" name="" v-model="inputSearch" @keydown="deleteSearchContacts" @keydown.enter="searchContact" value="" placeholder="Cerca o inizia una nuova chat">
+            <input type="text" name="" v-model="inputSearch" @keyup="deleteSearchContacts" @keydown.enter="searchContact" value="" placeholder="Cerca o inizia una nuova chat">
           </div>
           <!-- /ricerca chat/nome -->
           <!-- lista contatti/chat -->
