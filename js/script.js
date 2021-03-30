@@ -8,6 +8,7 @@ var app = new Vue(
               avatar: '_1',
               visible: true,
               access: '15:30',
+              read: true,
               messages: [{
                   date: '10/01/2020 15:30:55',
                   message: 'Hai portato a spasso il cane?',
@@ -30,6 +31,7 @@ var app = new Vue(
               avatar: '_2',
               visible: true,
               access: '11:30',
+              read: false,
               messages: [{
                   date: '20/03/2020 16:30:00',
                   message: 'Ciao come stai?',
@@ -52,6 +54,7 @@ var app = new Vue(
               avatar: '_3',
               visible: true,
               access: '14:30',
+              read: false,
               messages: [{
                   date: '28/03/2020 10:10:40',
                   message: 'La Marianna va in campagna',
@@ -74,6 +77,7 @@ var app = new Vue(
               avatar: '_4',
               visible: true,
               access: '13:30',
+              read: false,
               messages: [{
                   date: '10/01/2020 15:30:55',
                   message: 'Lo sai che ha aperto una nuova pizzeria?',
@@ -90,7 +94,8 @@ var app = new Vue(
               name: 'Mattia',
               avatar: '_5',
               visible: true,
-              access: '130:30',
+              access: '13:30',
+              read: false,
               messages: [{
                   date: '10/01/2020 15:30:55',
                   message: 'Oggi che cosa fai dopo lavoro?',
@@ -127,6 +132,7 @@ var app = new Vue(
       getIndex: function (index) { // Funzione per prendere l'indice dei contatti
         let x = index;
         this.messageBoxIndex = x;
+        this.contacts[x].read = true;
         return x;
       },
       sendMessage: function () { // Funzione per inviare messaggi e per ricevere una risposta dopo 1 secondo
@@ -136,14 +142,19 @@ var app = new Vue(
         let date = this.dataOra;
         let messagesArray = this.contacts;
         messagesArray[y].messages.push({message, date, status});
-        this.inputMessage = '';
         setTimeout(replace, 1000);
           function replace() {
             let stringheReplace = ['Ok', 'Vediamo', 'Davvero?', 'Magari', ':)'];
-            let message = stringheReplace[Math.floor(Math.random()*stringheReplace.length)];
+            if ( message == 'ciao') {
+              message = 'ciao :)';
+            } else {
+              message = stringheReplace[Math.floor(Math.random()*stringheReplace.length)];
+            }
             let status = 'received';
             messagesArray[y].messages.push({message, date, status});
+            messagesArray[y].read = false;
         }
+        this.inputMessage = '';
 
       },
       lastMessage: function(array){
