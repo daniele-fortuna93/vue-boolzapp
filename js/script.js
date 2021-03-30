@@ -5,12 +5,13 @@ var app = new Vue(
       contacts: [
           {
               name: 'Michele',
-              avatar: 'img/avatar_1.jpg',
+              avatar: '_1',
               visible: true,
+              access: '15:30',
               messages: [{
                   date: '10/01/2020 15:30:55',
                   message: 'Hai portato a spasso il cane?',
-                  status: 'sent'
+                  status: 'sent',
               },
                   {
                       date: '10/01/2020 15:50:00',
@@ -26,8 +27,9 @@ var app = new Vue(
           },
           {
               name: 'Fabio',
-              avatar: 'img/avatar_2.jpg',
+              avatar: '_2',
               visible: true,
+              access: '11:30',
               messages: [{
                   date: '20/03/2020 16:30:00',
                   message: 'Ciao come stai?',
@@ -47,8 +49,9 @@ var app = new Vue(
           },
           {
               name: 'Samuele',
-              avatar: 'img/avatar_3.jpg',
+              avatar: '_3',
               visible: true,
+              access: '14:30',
               messages: [{
                   date: '28/03/2020 10:10:40',
                   message: 'La Marianna va in campagna',
@@ -68,8 +71,9 @@ var app = new Vue(
           },
           {
               name: 'Luisa',
-              avatar: 'img/avatar_4.jpg',
+              avatar: '_4',
               visible: true,
+              access: '13:30',
               messages: [{
                   date: '10/01/2020 15:30:55',
                   message: 'Lo sai che ha aperto una nuova pizzeria?',
@@ -78,29 +82,18 @@ var app = new Vue(
                   {
                       date: '10/01/2020 15:50:00',
                       message: 'Si, ma preferirei andare al cinema',
-                      status: 'received'
+                      status: 'sent'
                   }
               ],
           },
       ],
       messageBoxIndex: 0,
       dataOra: dayjs().format('DD/MM/YYYY HH:mm:ss'),
-      inputMessage: '',
-      imgList:[
-        'img/avatar_1.jpg',
-        'img/avatar_2.jpg',
-        'img/avatar_3.jpg',
-        'img/avatar_4.jpg',
-        'img/avatar_5.jpg',
-        'img/avatar_6.jpg',
-        'img/avatar_7.jpg',
-        'img/avatar_8.jpg',
-      ]
+      inputMessage: ''
     },
     methods: {
       getIndex: function (index) { // Funzione per prendere l'indice dei contatti
         let x = index;
-        console.log(x);
         this.messageBoxIndex = x;
         return x;
       },
@@ -119,6 +112,10 @@ var app = new Vue(
             messagesArray[y].messages.push({message, date, status});
         }
 
+      },
+      lastMessage: function(array){
+        let lastIndex = array.length - 1;
+        return lastIndex;
       }
     }
   }

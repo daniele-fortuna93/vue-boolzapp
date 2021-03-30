@@ -6,12 +6,19 @@
 }
 /* /reset */
 /* typo */
+.list_sent{
+  font-weight: 700;
+}
+.contacts_list li p{
+  margin-top: 10px;
+}
 .message p{
   overflow-wrap: anywhere;
 }
 .notifications_text a,
 .avatar_info span,
-.message_footer input{
+.message_footer input,
+.contacts_list li p{
   color: #6B7376;
   font-size: 14px;
 }
@@ -57,6 +64,12 @@
   align-items: center;
   background: rgb(219,219,210);
   background: linear-gradient(0deg, rgba(219,219,210,1) 80%, rgba(0,150,136,1) 80%);
+}
+.double_check_show{
+  color: #4fc3f7;
+}
+.double_check_hide{
+  display: none;
 }
 /* main */
 main{
@@ -132,14 +145,15 @@ main{
   list-style: none;
 }
 .contacts_list li{
+  display: flex;
   padding: 12px;
 }
 .contacts_list li:hover{
-  background-color: #B1B1B1;
+  background-color: #ebebeb;
   cursor: pointer;
 }
 .active{
-  background-color: #B1B1B1;
+  background-color: #ebebeb;
 }
 .contacts_list img{
   width: 55px;
