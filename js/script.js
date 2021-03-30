@@ -139,7 +139,8 @@ var app = new Vue(
         this.inputMessage = '';
         setTimeout(replace, 1000);
           function replace() {
-            let message = 'Ok';
+            let stringheReplace = ['Ok', 'Vediamo', 'Davvero?', 'Magari', ':)'];
+            let message = stringheReplace[Math.floor(Math.random()*stringheReplace.length)];
             let status = 'received';
             messagesArray[y].messages.push({message, date, status});
         }
