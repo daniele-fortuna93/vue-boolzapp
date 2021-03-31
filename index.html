@@ -92,7 +92,7 @@
           </div>
           <!-- /dati contatto chat aperta -->
           <!-- chat -->
-          <div  v-if="contacts[messageBoxIndex].visible == true" class="message_box">
+          <div  v-if="contacts[messageBoxIndex].visible == true" class="message_box" @click="showEmoticon">
             <!-- messaggi relativi alla chat -->
             <div  v-for="mex in contacts[messageBoxIndex].messages" class="message_box_line">
               <div class="message mine" :class="mex.status == 'sent' ? 'mine' : 'others'">
