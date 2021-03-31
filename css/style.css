@@ -46,6 +46,9 @@
   text-align: center;
   cursor: pointer;
 }
+#smile{
+  cursor: pointer;
+}
 /* /btn */
 /* mix */
 .header_container{
@@ -211,12 +214,28 @@ main{
   right: 2px;
 }
 .message_footer{
+  position: relative;
   padding: 8px 20px;
   height: 65px;
   background-color: #F3EEEA;
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+.emoticons{
+  position: absolute;
+  background-color: #F3EEEA;
+  max-width: 250px;
+  height: 200px;
+  left: 0;
+  top: -200px;
+  text-align: center;
+  overflow-y: auto;
+}
+.emoticon{
+  display: inline-block;
+  cursor: pointer;
+  margin: 5px;
 }
 .message_footer input{
   width: 85%;

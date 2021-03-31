@@ -128,7 +128,52 @@ var app = new Vue(
       messageBoxIndex: 0,
       dataOra: dayjs().format('DD/MM/YYYY HH:mm:ss'),
       inputMessage: '',
-      inputSearch: ''
+      inputSearch: '',
+      emoticons: [
+        '😀',
+        '😆',
+        '😁',
+        '😅',
+        '🤣',
+        '😂',
+        '🙂',
+        '😉',
+        '😉',
+        '😊',
+        '😇',
+        '🥰',
+        '😍',
+        '🤩',
+        '😘',
+        '😗',
+        '🍋',
+        '🍌',
+        '🍍',
+        '🥭',
+        '🍎',
+        '🍏',
+        '🍄',
+        '🧅',
+        '🥯',
+        '🍔',
+        '🥓',
+        '🍟',
+        '🍺',
+        '🍷',
+        '🍸',
+        '🥃',
+        '🍫',
+        '🍬',
+        '🏊‍♂️',
+        '🏂',
+        '⛹️',
+        '🏋️',
+        '🚴',
+        '🤸',
+        '🤼',
+        '🏌️'
+      ],
+      clickEmoticon: false
     },
     methods: {
       getIndex: function (index) { // Funzione per prendere l'indice dei contatti
@@ -139,6 +184,7 @@ var app = new Vue(
       },
       sendMessage: function () { // Funzione per inviare messaggi e per ricevere una risposta dopo 1 secondo
         let y = this.messageBoxIndex;
+        let stringheReplace = this.emoticons;
         let message = this.inputMessage;
         let status = 'sent';
         let date = this.dataOra;
@@ -146,7 +192,7 @@ var app = new Vue(
         messagesArray[y].messages.push({message, date, status});
         setTimeout(replace, 1000);
           function replace() {
-            let stringheReplace = ['Ok', 'Vediamo', 'Davvero?', 'Magari', ':)'];
+
             if ( message == 'ciao') {
               message = 'ciao :)';
             } else {
@@ -182,6 +228,12 @@ var app = new Vue(
         if ( this.inputSearch == '') {
           this.contactsSearch = [];
         }
+      },
+      showEmoticon: function() {
+        this.clickEmoticon == true ? this.clickEmoticon = false : this.clickEmoticon = true;
+      },
+      addEmoticon: function(emoticon){
+        this.inputMessage += emoticon;
       }
     }
   }

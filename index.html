@@ -105,8 +105,13 @@
           <!-- /chat -->
           <!-- input per inviare messaggi -->
           <div class="message_footer">
-            <button id="smile" type="button" name="button"><i class="far fa-smile"></i></button>
-            <input v-model="inputMessage" type="text" name="" value="" @keydown.enter="sendMessage" placeholder="Scrivi un messaggio">
+            <div class="emoticons" v-if="clickEmoticon">
+              <div class="emoticon"v-for="emoticon in emoticons" @click="addEmoticon(emoticon)">
+                {{emoticon}}
+              </div>
+            </div>
+            <button id="smile" type="button" name="button" @click="showEmoticon" ><i class="far fa-smile"></i></button>
+            <input v-model="inputMessage" type="text" name="" value="" @keydown.enter="sendMessage" placeholder="Scrivi un messaggio" @click="showEmoticon">
             <button id="microphone" type="button" name="button"><i class="fas fa-microphone"></i></button>
           </div>
           <!-- /input per inviare messaggi -->
