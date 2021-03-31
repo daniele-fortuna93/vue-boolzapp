@@ -9,6 +9,7 @@ var app = new Vue(
               visible: true,
               access: '15:30',
               read: true,
+              showDeleteChatBox: false,
               messages: [{
                   date: '10/01/2020 15:30:55',
                   message: 'Hai portato a spasso il cane?',
@@ -32,6 +33,7 @@ var app = new Vue(
               visible: true,
               access: '11:30',
               read: false,
+              showDeleteChatBox: false,
               messages: [{
                   date: '20/03/2020 16:30:00',
                   message: 'Ciao come stai?',
@@ -55,6 +57,7 @@ var app = new Vue(
               visible: true,
               access: '14:30',
               read: false,
+              showDeleteChatBox: false,
               messages: [{
                   date: '28/03/2020 10:10:40',
                   message: 'La Marianna va in campagna',
@@ -78,6 +81,7 @@ var app = new Vue(
               visible: true,
               access: '13:30',
               read: false,
+              showDeleteChatBox: false,
               messages: [{
                   date: '10/01/2020 15:30:55',
                   message: 'Lo sai che ha aperto una nuova pizzeria?',
@@ -96,6 +100,7 @@ var app = new Vue(
               visible: true,
               access: '13:30',
               read: false,
+              showDeleteChatBox: false,
               messages: [{
                   date: '10/01/2020 15:30:55',
                   message: 'Oggi che cosa fai dopo lavoro?',
@@ -130,48 +135,8 @@ var app = new Vue(
       inputMessage: '',
       inputSearch: '',
       emoticons: [
-        '😀',
-        '😆',
-        '😁',
-        '😅',
-        '🤣',
-        '😂',
-        '🙂',
-        '😉',
-        '😉',
-        '😊',
-        '😇',
-        '🥰',
-        '😍',
-        '🤩',
-        '😘',
-        '😗',
-        '🍋',
-        '🍌',
-        '🍍',
-        '🥭',
-        '🍎',
-        '🍏',
-        '🍄',
-        '🧅',
-        '🥯',
-        '🍔',
-        '🥓',
-        '🍟',
-        '🍺',
-        '🍷',
-        '🍸',
-        '🥃',
-        '🍫',
-        '🍬',
-        '🏊‍♂️',
-        '🏂',
-        '⛹️',
-        '🏋️',
-        '🚴',
-        '🤸',
-        '🤼',
-        '🏌️'
+        '😀','😆','😁','😅','🤣','😂','🙂','😉','😉','😊','😇','🥰','😍','🤩','😘','😗','🍋','🍌','🍍','🥭','🍎','🍏','🍄','🧅','🥯','🍔','🥓','🍟','🍺','🍷','🍸','🥃','🍫','🍬',
+        '🏂','⛹️','🏋️','🚴','🤸','🤼','🏌️'
       ],
       clickEmoticon: false
     },
@@ -234,6 +199,21 @@ var app = new Vue(
       },
       addEmoticon: function(emoticon){
         this.inputMessage += emoticon;
+      },
+      changeDeleteChatBox: function(index){
+        let contacts = this.contacts;
+        for (let i = 0; i < contacts.length; i++) {
+          if ( i == index ) continue;
+          contacts[i].showDeleteChatBox = false;
+        }
+        contacts[index].showDeleteChatBox == true ? contacts[index].showDeleteChatBox = false : contacts[index].showDeleteChatBox = true;
+      },
+      deleteChat: function(index){
+        let contacts = this.contacts;
+        contacts[index].messages = [];
+        for (let i = 0; i < contacts.length; i++) {
+          contacts[i].showDeleteChatBox = false;
+        }
       }
     }
   }
