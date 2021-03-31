@@ -179,6 +179,7 @@ var app = new Vue(
         nomeCercato = nomeCercato[0].toUpperCase() + nomeCercato.substring(1);
         let contatti = this.contacts;
         let contactSearch = this.contactsSearch;
+        this.messageBoxIndex = 0;
         if ( nomeCercato != '') {
 
           for (var i = 0; i < contatti.length; i++) {
