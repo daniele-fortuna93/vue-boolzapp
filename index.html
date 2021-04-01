@@ -89,6 +89,7 @@
               <div class="avatar_info">
                 <p>{{ contacts[messageBoxIndex].name}}</p>
                 <span>Ultimo accesso oggi alle {{contacts[messageBoxIndex].access}}</span>
+
               </div>
             </div>
             <div class="avatar_name" v-else>
@@ -109,10 +110,14 @@
           <div v-if="contactsSearch.length == 0" class="message_box">
             <div  v-if="contacts[messageBoxIndex].visible == true"  @click="clickEmoticon = false">
               <!-- messaggi relativi alla chat -->
-              <div  v-for="mex in contacts[messageBoxIndex].messages" class="message_box_line">
+              <div  v-for="(mex, index) in contacts[messageBoxIndex].messages" class="message_box_line">
                 <div v-if="mex.messages != 0"class="message mine" :class="mex.status == 'sent' ? 'mine' : 'others'">
                   <p>{{mex.message}}</p>
                   <span class="date">{{mex.date}}</span>
+                  <i @click="changeDeleteMessage(mex,index,contacts[messageBoxIndex].messages)"class="fas fa-angle-down"></i>
+                  <div class="delete_message" v-if="mex.showDeleteMessage">
+                    <span @click="deleteMessage(mex,index,contacts[messageBoxIndex].messages)">Elimina messaggio</span>
+                  </div>
                 </div>
               </div>
               <!-- /messaggi relativi alla chat -->

@@ -229,6 +229,32 @@ main{
   max-width: 50%;
   min-width: 40%;
 }
+.message i{
+  position: absolute;
+  display: none;
+  cursor: pointer;
+  color: #6B7376;
+  font-size: 20px;
+  top: 15px;
+  right: 5px;
+}
+.message:hover i{
+  display: block;
+}
+.delete_message{
+  z-index: 5;
+  overflow: hidden;
+  border-radius: 10px;
+  position: absolute;
+  background-color: #fff;
+  right: -50px;
+  top: 30px;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.26),0 2px 10px 0 rgba(0,0,0,.16);
+}
+.delete_message span {
+  display: inline-block;
+  padding: 10px;
+}
 .mine{
   float: right;
   background-color: #D5F9BA;

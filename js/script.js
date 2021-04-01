@@ -13,16 +13,19 @@ var app = new Vue(
               messages: [{
                   date: '10/01/2020 15:30:55',
                   message: 'Hai portato a spasso il cane?',
+                  showDeleteMessage: false,
                   status: 'sent',
               },
                   {
                       date: '10/01/2020 15:50:00',
                       message: 'Ricordati di dargli da mangiare',
+                      showDeleteMessage: false,
                       status: 'sent'
                   },
                   {
                       date: '10/01/2020 16:15:22',
                       message: 'Tutto fatto!',
+                      showDeleteMessage: false,
                       status: 'received'
                   }
               ],
@@ -36,16 +39,19 @@ var app = new Vue(
               showDeleteChatBox: false,
               messages: [{
                   date: '20/03/2020 16:30:00',
+                  showDeleteMessage: false,
                   message: 'Ciao come stai?',
                   status: 'sent'
               },
                   {
                       date: '20/03/2020 16:30:55',
+                      showDeleteMessage: false,
                       message: 'Bene grazie! Stasera ci vediamo?',
                       status: 'received'
                   },
                   {
                       date: '20/03/2020 16:35:00',
+                      showDeleteMessage: false,
                       message: 'Mi piacerebbe ma devo andare a fare la spesa.',
                       status: 'received'
                   }
@@ -60,16 +66,19 @@ var app = new Vue(
               showDeleteChatBox: false,
               messages: [{
                   date: '28/03/2020 10:10:40',
+                  showDeleteMessage: false,
                   message: 'La Marianna va in campagna',
                   status: 'received'
               },
                   {
                       date: '28/03/2020 10:20:10',
+                      showDeleteMessage: false,
                       message: 'Sicuro di non aver sbagliato chat?',
                       status: 'sent'
                   },
                   {
                       date: '28/03/2020 16:15:22',
+                      showDeleteMessage: false,
                       message: 'Ah scusa!',
                       status: 'received'
                   }
@@ -84,11 +93,13 @@ var app = new Vue(
               showDeleteChatBox: false,
               messages: [{
                   date: '10/01/2020 15:30:55',
+                  showDeleteMessage: false,
                   message: 'Lo sai che ha aperto una nuova pizzeria?',
                   status: 'sent'
               },
                   {
                       date: '10/01/2020 15:50:00',
+                      showDeleteMessage: false,
                       message: 'Si, ma preferirei andare al cinema',
                       status: 'received'
                   }
@@ -103,26 +114,31 @@ var app = new Vue(
               showDeleteChatBox: false,
               messages: [{
                   date: '10/01/2020 15:30:55',
+                  showDeleteMessage: false,
                   message: 'Oggi che cosa fai dopo lavoro?',
                   status: 'sent'
               },
                   {
                       date: '10/01/2020 15:50:00',
+                      showDeleteMessage: false,
                       message: 'Ancora non lo so',
                       status: 'received'
                   },
                   {
                       date: '10/01/2020 15:50:00',
+                      showDeleteMessage: false,
                       message: 'Tu sei libero?',
                       status: 'received'
                   },
                   {
                       date: '10/01/2020 15:50:00',
+                      showDeleteMessage: false,
                       message: 'Si',
                       status: 'sent'
                   },
                   {
                       date: '10/01/2020 15:50:00',
+                      showDeleteMessage: false,
                       message: 'Potremmo vederci per le 16:00, che ne pensi?',
                       status: 'sent'
                   }
@@ -156,7 +172,8 @@ var app = new Vue(
         let status = 'sent';
         let date = this.dataOra;
         let messagesArray = this.contacts;
-        messagesArray[y].messages.push({message, date, status});
+        let showDeleteMessage = false;
+        messagesArray[y].messages.push({message, date, status, showDeleteMessage});
         setTimeout(replace, 1000);
           function replace() {
 
@@ -166,7 +183,7 @@ var app = new Vue(
               message = stringheReplace[Math.floor(Math.random()*stringheReplace.length)];
             }
             let status = 'received';
-            messagesArray[y].messages.push({message, date, status});
+            messagesArray[y].messages.push({message, date, status, showDeleteMessage});
             messagesArray[y].read = false;
         }
         this.inputMessage = '';
@@ -204,8 +221,6 @@ var app = new Vue(
         this.inputMessage += emoticon;
       },
       changeDeleteChatBox: function(index){
-        console.log(this.contacts[index]);
-        console.log(this.contactsSearch[index]);
         let contacts = this.contacts;
         let contactsSearch = this.contactsSearch;
         for (let i = 0; i < contacts.length; i++) {
@@ -224,6 +239,17 @@ var app = new Vue(
         for (let i = 0; i < contacts.length; i++) {
           contacts[i].showDeleteChatBox = false;
         }
+      },
+      changeDeleteMessage: function(mex,index,array){
+
+        for (var i = 0; i < array.length; i++) {
+          if ( i == index) continue;
+          array[i].showDeleteMessage = false;
+        }
+        mex.showDeleteMessage == true ? mex.showDeleteMessage = false : mex.showDeleteMessage = true;
+      },
+      deleteMessage: function(mex,index,array) {
+        array.splice(index,1)
       }
     }
   }
