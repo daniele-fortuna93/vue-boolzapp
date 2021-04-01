@@ -130,6 +130,7 @@ var app = new Vue(
           },
       ],
       contactsSearch:[],
+      contactsArchivied: [],
       messageBoxIndex: 0,
       dataOra: dayjs().format('DD/MM/YYYY HH:mm:ss'),
       inputMessage: '',
@@ -138,7 +139,8 @@ var app = new Vue(
         '😀','😆','😁','😅','🤣','😂','🙂','😉','😉','😊','😇','🥰','😍','🤩','😘','😗','🍋','🍌','🍍','🥭','🍎','🍏','🍄','🧅','🥯','🍔','🥓','🍟','🍺','🍷','🍸','🥃','🍫','🍬',
         '🏂','⛹️','🏋️','🚴','🤸','🤼','🏌️'
       ],
-      clickEmoticon: false
+      clickEmoticon: false,
+      chatArchivied: true
     },
     methods: {
       getIndex: function (index) { // Funzione per prendere l'indice dei contatti
@@ -202,10 +204,17 @@ var app = new Vue(
         this.inputMessage += emoticon;
       },
       changeDeleteChatBox: function(index){
+        console.log(this.contacts[index]);
+        console.log(this.contactsSearch[index]);
         let contacts = this.contacts;
+        let contactsSearch = this.contactsSearch;
         for (let i = 0; i < contacts.length; i++) {
           if ( i == index ) continue;
           contacts[i].showDeleteChatBox = false;
+        }
+
+        if ( contactsSearch.length > 0) {
+          contactsSearch[index].showDeleteChatBox == true ? contactsSearch[index].showDeleteChatBox = false : contactsSearch[index].showDeleteChatBox = true;
         }
         contacts[index].showDeleteChatBox == true ? contacts[index].showDeleteChatBox = false : contacts[index].showDeleteChatBox = true;
       },
