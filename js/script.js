@@ -173,9 +173,10 @@ var app = new Vue(
         let date = this.dataOra;
         let messagesArray = this.contacts;
         let showDeleteMessage = false;
-        messagesArray[y].messages.push({message, date, status, showDeleteMessage});
-        setTimeout(replace, 1000);
-          function replace() {
+        let contactsSearch = this.contactsSearch;
+        if ( contactsSearch.length == 0 ) {
+          messagesArray[y].messages.push({message, date, status, showDeleteMessage});
+          setTimeout(function replace() {
 
             if ( message == 'ciao') {
               message = 'ciao :)';
@@ -185,9 +186,23 @@ var app = new Vue(
             let status = 'received';
             messagesArray[y].messages.push({message, date, status, showDeleteMessage});
             messagesArray[y].read = false;
+          },1000);
+
+        } else {
+          contactsSearch[y].messages.push({message, date, status, showDeleteMessage});
+          setTimeout(function replace() {
+
+            if ( message == 'ciao') {
+              message = 'ciao :)';
+            } else {
+              message = stringheReplace[Math.floor(Math.random()*stringheReplace.length)];
+            }
+            let status = 'received';
+            contactsSearch[y].messages.push({message, date, status, showDeleteMessage});
+            contactsSearch[y].read = false;
+          },1000);
         }
         this.inputMessage = '';
-
       },
       lastMessage: function(array){
         let lastIndex = array.length - 1;
@@ -223,22 +238,37 @@ var app = new Vue(
       changeDeleteChatBox: function(index){
         let contacts = this.contacts;
         let contactsSearch = this.contactsSearch;
-        for (let i = 0; i < contacts.length; i++) {
-          if ( i == index ) continue;
-          contacts[i].showDeleteChatBox = false;
+        if ( contactsSearch.length > 0) {
+          for (let i = 0; i < contactsSearch.length; i++) {
+            if ( i == index ) continue;
+            contactsSearch[i].showDeleteChatBox = false;
+          }
+          contactsSearch[index].showDeleteChatBox == true ? contactsSearch[index].showDeleteChatBox = false : contactsSearch[index].showDeleteChatBox = true;
+        } else {
+          for (let i = 0; i < contacts.length; i++) {
+            if ( i == index ) continue;
+            contacts[i].showDeleteChatBox = false;
+          }
+          contacts[index].showDeleteChatBox == true ? contacts[index].showDeleteChatBox = false : contacts[index].showDeleteChatBox = true;
         }
 
-        if ( contactsSearch.length > 0) {
-          contactsSearch[index].showDeleteChatBox == true ? contactsSearch[index].showDeleteChatBox = false : contactsSearch[index].showDeleteChatBox = true;
-        }
-        contacts[index].showDeleteChatBox == true ? contacts[index].showDeleteChatBox = false : contacts[index].showDeleteChatBox = true;
       },
       deleteChat: function(index){
         let contacts = this.contacts;
-        contacts[index].messages = [];
-        for (let i = 0; i < contacts.length; i++) {
-          contacts[i].showDeleteChatBox = false;
+        let contactsSearch = this.contactsSearch;
+        if ( contactsSearch.length == 0) {
+          contacts[index].messages = [];
+          for (let i = 0; i < contacts.length; i++) {
+            contacts[i].showDeleteChatBox = false;
+          }
+        } else {
+          contactsSearch[index].messages = [];
+          for (let i = 0; i < contactsSearch.length; i++) {
+            contactsSearch[i].showDeleteChatBox = false;
+          }
         }
+
+
       },
       changeDeleteMessage: function(mex,index,array){
 
