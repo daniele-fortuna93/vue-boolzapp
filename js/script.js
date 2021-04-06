@@ -210,16 +210,14 @@ var app = new Vue(
       },
       searchContact: function () {
         let nomeCercato = this.inputSearch;
-        nomeCercato = nomeCercato[0].toUpperCase() + nomeCercato.substring(1);
         let contatti = this.contacts;
-        let contactSearch = this.contactsSearch;
+        let contactsSearch = this.contactsSearch;
         this.messageBoxIndex = 0;
         if ( nomeCercato != '') {
-
           for (var i = 0; i < contatti.length; i++) {
-            if ((new RegExp(nomeCercato)).test(contatti[i].name)) {
-              if (!contactSearch.includes(contatti[i]))
-              contactSearch.push(contatti[i]);
+            if ((new RegExp(nomeCercato.toLowerCase())).test(contatti[i].name.toLowerCase())) {
+              if (!contactsSearch.includes(contatti[i]))
+              contactsSearch.push(contatti[i]);
             }
           }
         }
